@@ -1,29 +1,14 @@
-package Utils;
+package Day1;
 
+import Utils.BaseDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class BaseDriver  {
+public class _04_Login extends BaseDriver {
 
-    /*
-     WebDriver driver; access modifier is a default --> accessible in the same package
-
-     We need to make driver as public or protected so we are able to access it
-     */
-
-    protected WebDriver driver;
-
-    @BeforeMethod
-    public void BeforeMethod(){
-        System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://opencart.abstracta.us/index.php?route=common/home");
+    @Test
+    public void LoginFunc(){
 
         WebElement myAccount = driver.findElement(By.xpath("//span[text()='My Account']"));
         myAccount.click();
@@ -46,10 +31,5 @@ public class BaseDriver  {
         WebElement loginButtonLogPage = driver.findElement(By.cssSelector("input[value='Login']"));
         loginButtonLogPage.click();
 
-    }
-
-    @AfterMethod
-    public void afterMethod(){
-        driver.quit();
     }
 }
