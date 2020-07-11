@@ -46,6 +46,8 @@ public class BaseDriver  {
         WebElement loginButtonLogPage = driver.findElement(By.cssSelector("input[value='Login']"));
         loginButtonLogPage.click();
 
+
+        
     }
 
     @AfterMethod
