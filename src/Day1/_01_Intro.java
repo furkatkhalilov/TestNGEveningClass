@@ -6,6 +6,7 @@ public class _01_Intro {
 
 
     /*
+
         @BeforeClass  --> It is running before the Before method and @Test
             @BeforeMethod   --> It is running before each @Test
                 @Test
@@ -27,12 +28,16 @@ public class _01_Intro {
         System.out.println("This is Test2");
     }
 
-    @BeforeMethod
-    public void beforeMethodA(){
-        System.out.println("This is Before Method A <----");
+    @Test
+    public void Test3(){
+        System.out.println("This is Test3");
     }
+//    @BeforeMethod
+//    public void beforeMethodA(){
+//        System.out.println("This is Before Method A <----");
+//    }
 
-//    This will run before each @Test
+//    This will run before each @Test -- We can have multiple before methods
     @BeforeMethod
     public void beforeMethodZ(){
         System.out.println("This is Before Method");
