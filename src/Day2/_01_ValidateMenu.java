@@ -29,7 +29,7 @@ public class _01_ValidateMenu extends BaseDriver {
         expectedMenuItems.add("Laptops & Notebooks");
         expectedMenuItems.add("Components");
         expectedMenuItems.add("Tablets");
-        expectedMenuItems.add("anything");
+        expectedMenuItems.add("Software");
         expectedMenuItems.add("Phones & PDAs");
         expectedMenuItems.add("Cameras");
         expectedMenuItems.add("MP3 Players");
@@ -41,7 +41,6 @@ public class _01_ValidateMenu extends BaseDriver {
         actualStrings = ReusableMethods.WebElmentToString(actualResult);
 
         ReusableMethods.verifyTwoStringList(expectedMenuItems , actualStrings);
-
 
     }
 
