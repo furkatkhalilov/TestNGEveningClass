@@ -3,6 +3,7 @@ package Day3;
 import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class _02_AddressFunctionality extends BaseDriver {
@@ -38,6 +39,15 @@ public class _02_AddressFunctionality extends BaseDriver {
         WebElement inputPostcode = driver.findElement(By.id("input-postcode"));
         inputPostcode.sendKeys("12345");
 
+        WebElement countryDropdown = driver.findElement(By.id("input-country"));
+        Select s1 = new Select(countryDropdown);
+        s1.selectByIndex(5);
 
+        
     }
 }
+
+    /*
+        Create a Method which is choosing the element from from the dropdown
+     */
+
