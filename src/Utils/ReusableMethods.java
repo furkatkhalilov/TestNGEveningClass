@@ -55,9 +55,10 @@ public class ReusableMethods extends BaseDriver{
         WebElement SuccessMessage = driver.findElement(By.cssSelector("div[class='alert alert-success']"));
 
         Assert.assertTrue(SuccessMessage.getText().contains("Success"));
-//        Assert.assertEquals(SuccessMessage.getText() , "Success");
+//        Assert.assertEquals(SuccessMessage.getText() , "Success: Your account has been successfully updated.");
 //         Success: Your account has been successfully updated.
 //         Success: Your newsletter subscription has been successfully updated
     }
+
 
 }
