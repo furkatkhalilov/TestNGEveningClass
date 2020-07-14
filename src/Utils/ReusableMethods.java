@@ -1,12 +1,14 @@
 package Utils;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReusableMethods {
+public class ReusableMethods extends BaseDriver{
 
      /*
         Create one method
@@ -45,4 +47,17 @@ public class ReusableMethods {
 
         return actualResultString;
     }
+
+
+    //Create one method it should search for the sucess message and verify it
+    public void verifySuccessMessage(WebDriver driver){
+
+        WebElement SuccessMessage = driver.findElement(By.cssSelector("div[class='alert alert-success']"));
+
+        Assert.assertTrue(SuccessMessage.getText().contains("Success"));
+//        Assert.assertEquals(SuccessMessage.getText() , "Success");
+//         Success: Your account has been successfully updated.
+//         Success: Your newsletter subscription has been successfully updated
+    }
+
 }
