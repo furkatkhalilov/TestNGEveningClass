@@ -2,8 +2,11 @@ package Day3;
 
 import Utils.BaseDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class _02_AddressFunctionality extends BaseDriver {
@@ -40,14 +43,43 @@ public class _02_AddressFunctionality extends BaseDriver {
         inputPostcode.sendKeys("12345");
 
         WebElement countryDropdown = driver.findElement(By.id("input-country"));
-        Select s1 = new Select(countryDropdown);
-        s1.selectByIndex(5);
+//        Select s1 = new Select(countryDropdown);
+//        s1.selectByIndex(5);
 
-        
+        selectByIndex(countryDropdown , 5);
+
+        WebElement StateDropdown = driver.findElement(By.id("input-zone"));
+
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        WebDriverWait wait = new WebDriverWait(driver , 10);
+
+        //select[@id='input-zone']/option
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan())
+
+        selectByIndex(StateDropdown , 5);
+
     }
+
+    public void selectByIndex(WebElement dropdownName , int number){
+
+        Select s1 = new Select(dropdownName);
+
+        s1.selectByIndex(number);
+
+    }
+
 }
 
     /*
         Create a Method which is choosing the element from from the dropdown
      */
 
+        /*
+            StaleElementReferenceException
+                After find the element page is refreshed that is why element is not able find it
+         */
