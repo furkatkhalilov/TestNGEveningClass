@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class _02_AddressFunctionality extends BaseDriver {
     
 
@@ -43,34 +45,36 @@ public class _02_AddressFunctionality extends BaseDriver {
         inputPostcode.sendKeys("12345");
 
         WebElement countryDropdown = driver.findElement(By.id("input-country"));
-//        Select s1 = new Select(countryDropdown);
-//        s1.selectByIndex(5);
 
-        selectByIndex(countryDropdown , 5);
-
-        WebElement StateDropdown = driver.findElement(By.id("input-zone"));
-
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        selectByIndex(countryDropdown);
 
         WebDriverWait wait = new WebDriverWait(driver , 10);
 
-        //select[@id='input-zone']/option
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan())
+        By optionsForState = By.xpath("//select[@id='input-zone']/option");
 
-        selectByIndex(StateDropdown , 5);
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(optionsForState , 2));
+
+        WebElement StateDropdown = driver.findElement(By.id("input-zone"));
+
+        selectByIndex(StateDropdown);
 
     }
 
-    public void selectByIndex(WebElement dropdownName , int number){
+    public void selectByIndex(WebElement dropdownName ){
 
         Select s1 = new Select(dropdownName);
 
-        s1.selectByIndex(number);
+        s1.selectByIndex(RandomNumberGenerator(s1.getOptions().size()));// s1.getOptions().size() return is how many options we have in the dropdown
 
+    }
+
+//    Create a random number generator method and use it in the selectByIndex method
+
+    public int RandomNumberGenerator(int max){
+
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(max);
+        return randomNumber;
     }
 
 }
