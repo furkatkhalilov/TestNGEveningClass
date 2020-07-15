@@ -1,6 +1,7 @@
 package Day3;
 
 import Utils.BaseDriver;
+import Utils.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,10 +13,11 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 public class _02_AddressFunctionality extends BaseDriver {
-    
+
+    ReusableMethods reusableMethods = new ReusableMethods();
 
     @Test
-    public void AddAddress(){
+    public void AddAddress() {
 
         WebElement AddressBookButton = driver.findElement(By.linkText("Address Book"));
         AddressBookButton.click();
@@ -46,36 +48,31 @@ public class _02_AddressFunctionality extends BaseDriver {
 
         WebElement countryDropdown = driver.findElement(By.id("input-country"));
 
-        selectByIndex(countryDropdown);
+        reusableMethods.selectByIndex(countryDropdown);
 
-        WebDriverWait wait = new WebDriverWait(driver , 10);
+//        why thread sleep is inside try catch block?
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        By optionsForState = By.xpath("//select[@id='input-zone']/option");
-
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(optionsForState , 2));
+//        WebDriverWait wait = new WebDriverWait(driver , 10);
+//
+//        By optionsForState = By.xpath("//select[@id='input-zone']/option");
+//
+//        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(optionsForState , 3));
 
         WebElement StateDropdown = driver.findElement(By.id("input-zone"));
 
-        selectByIndex(StateDropdown);
+        reusableMethods.selectByIndex(StateDropdown);
 
+        WebElement continueButton = driver.findElement(By.xpath("//input[@value='Continue']"));
+        continueButton.click();
+
+        reusableMethods.verifySuccessMessage(driver);
     }
 
-    public void selectByIndex(WebElement dropdownName ){
-
-        Select s1 = new Select(dropdownName);
-
-        s1.selectByIndex(RandomNumberGenerator(s1.getOptions().size()));// s1.getOptions().size() return is how many options we have in the dropdown
-
-    }
-
-//    Create a random number generator method and use it in the selectByIndex method
-
-    public int RandomNumberGenerator(int max){
-
-        Random rnd = new Random();
-        int randomNumber = rnd.nextInt(max);
-        return randomNumber;
-    }
 
 }
 
