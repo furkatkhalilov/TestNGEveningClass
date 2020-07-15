@@ -17,6 +17,17 @@ public class _02_AddressFunctionality extends BaseDriver {
 
     ReusableMethods reusableMethods = new ReusableMethods();
 
+    /*
+        TestNG run the @Test's alphabetical order as default
+            1-AddAddress
+            2-DeleteAddress
+            3-EditAddress
+
+        To change the order we can use as -->  @Test(priority = 1)
+
+
+     */
+
     @Test
     public void AddAddress() {
 
@@ -74,7 +85,7 @@ public class _02_AddressFunctionality extends BaseDriver {
         reusableMethods.verifySuccessMessage(driver);
     }
 
-    @Test
+    @Test(dependsOnMethods = "AddAddress")
     public void editAddress(){
 
         WebElement AddressBookButton = driver.findElement(By.linkText("Address Book"));
@@ -105,9 +116,16 @@ public class _02_AddressFunctionality extends BaseDriver {
 
     }
 
-    @Test
+    @Test(dependsOnMethods = "editAddress")
     public void deleteAddress(){
 
+        WebElement AddressBookButton = driver.findElement(By.linkText("Address Book"));
+        AddressBookButton.click();
+
+        List<WebElement> deleteList = driver.findElements(By.xpath("//a[text()='Delete']"));
+        deleteList.get(deleteList.size()-1).click();
+
+        reusableMethods.verifySuccessMessage(driver);
 
     }
 
