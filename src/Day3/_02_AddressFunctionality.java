@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Random;
 
 public class _02_AddressFunctionality extends BaseDriver {
@@ -73,6 +74,42 @@ public class _02_AddressFunctionality extends BaseDriver {
         reusableMethods.verifySuccessMessage(driver);
     }
 
+    @Test
+    public void editAddress(){
+
+        WebElement AddressBookButton = driver.findElement(By.linkText("Address Book"));
+        AddressBookButton.click();
+
+        /*
+            Click on last edit button
+
+         */
+
+        List<WebElement> editOptions = driver.findElements(By.xpath("//a[text()='Edit']"));
+
+        editOptions.get(editOptions.size()-1).click(); // list is start counting from 0 and size is start counting from 1
+//                                              To get the last element from the list we need to use -1
+
+        WebElement firstNameInput = driver.findElement(By.id("input-firstname"));
+        firstNameInput.clear();
+        firstNameInput.sendKeys("Keanu");
+
+        WebElement lastNameInput = driver.findElement(By.id("input-lastname"));
+        lastNameInput.clear();
+        lastNameInput.sendKeys("Rives");
+
+        WebElement continueButton = driver.findElement(By.xpath("//input[@value='Continue']"));
+        continueButton.click();
+
+        reusableMethods.verifySuccessMessage(driver);
+
+    }
+
+    @Test
+    public void deleteAddress(){
+
+
+    }
 
 }
 

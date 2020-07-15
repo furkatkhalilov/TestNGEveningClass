@@ -68,7 +68,6 @@ public class ReusableMethods extends BaseDriver{
 
         s1.selectByIndex(RandomNumberGenerator(s1.getOptions().size()));// s1.getOptions().size() return is how many options we have in the dropdown
 
-
     }
 
 //    Create a random number generator method and use it in the selectByIndex method
