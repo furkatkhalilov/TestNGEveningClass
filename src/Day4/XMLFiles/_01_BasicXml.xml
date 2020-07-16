@@ -1,0 +1,12 @@
+
+
+<!--    Is running the multiple classes in the same time-->
+<!--        I am able to parameterize the tests.-->
+<!--        Help for parallel testing. Open multiple browser in the same time and reduce execution time for us.-->
+<!--        Cross browser testing.-->
+
+<!--    I have 10 @Test-->
+<!--        4 of them as a smoke test-->
+<!--        8 of them as a regression test -->
+
+
