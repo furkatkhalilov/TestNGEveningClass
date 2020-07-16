@@ -22,5 +22,4 @@ public class _02_Intro {
         System.out.println("Test2 in the _02_Intro");
     }
 
-
 }
