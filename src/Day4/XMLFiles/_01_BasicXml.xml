@@ -9,4 +9,11 @@
 <!--        4 of them as a smoke test-->
 <!--        8 of them as a regression test -->
 
-
+<!-- One xml file can have ony one suite but it could contain multiple test<>-->
+<suite name="suite1">
+    <test name="test1">
+        <classes>
+            <class name="Day4._01_Intro"></class>
+        </classes>
+    </test>
+</suite>
