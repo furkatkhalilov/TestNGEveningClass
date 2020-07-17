@@ -18,7 +18,7 @@ public class BaseDriver  {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"SmokeTesting","Regression"})
     public void BeforeMethod(){
         System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -45,7 +45,6 @@ public class BaseDriver  {
 
         WebElement loginButtonLogPage = driver.findElement(By.cssSelector("input[value='Login']"));
         loginButtonLogPage.click();
-
     }
 
     @AfterMethod

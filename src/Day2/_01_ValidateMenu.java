@@ -20,7 +20,7 @@ public class _01_ValidateMenu extends BaseDriver {
         NOTE: One java class can not extend two multiple classes
      */
 
-    @Test
+    @Test(groups = "Regression")
     public void validateMenu(){
 
         List<String> expectedMenuItems=new ArrayList<>();

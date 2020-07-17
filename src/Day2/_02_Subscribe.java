@@ -46,7 +46,7 @@ public class _02_Subscribe extends BaseDriver {
 
     }
 
-    @Test
+    @Test(groups = "SmokeTesting")
     public void subscribeFunctionForBoth(){
 
         WebElement SubscribeButton = driver.findElement(By.linkText("Subscribe / unsubscribe to newsletter"));
@@ -67,7 +67,5 @@ public class _02_Subscribe extends BaseDriver {
         continueButton.click();
 
         reusableMethods.verifySuccessMessage(driver);
-
     }
-
 }

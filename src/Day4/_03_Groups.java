@@ -14,6 +14,18 @@ public class _03_Groups {
         System.out.println("Test2 for Regression");
     }
 
+    @Test(groups = "Regression" )
+    public void Test7(){
+        System.out.println("Test7 for Regression");
+    }
+
+    //    We are able to add multiple parameter in the test
+    @Test(groups = "Regression", enabled = false )
+    public void Test5(){
+        System.out.println("Test5 for Smoke");
+    }
+
+
     @Test(groups = "SmokeTest", priority = 2)
     public void Test3(){
         System.out.println("Test3 for Smoke");
@@ -24,24 +36,9 @@ public class _03_Groups {
         System.out.println("Test4 for Smoke");
     }
 
-//    We are able to add multiple parameter in the test
-    @Test(groups = "SmokeTest", enabled = false )
-    public void Test5(){
-        System.out.println("Test5 for Smoke");
-    }
-
     @Test
     public void Test6(){
         System.out.println("Test 6 for no group");
     }
-
-    /*
-        Please run the Day2.ValidateMenu
-            add it in the regression test
-
-            Day2.subscribe in the smoke test
-            Day2.EditAccount in the smoke test
-     */
-
 
 }
