@@ -11,7 +11,7 @@ public class _02_Subscribe extends BaseDriver {
 
     ReusableMethods reusableMethods = new ReusableMethods();
 
-    @Test
+    @Test(enabled = false) // with enabled keyword TestNG will ignore this test
     public void subscribeFunctionYes(){
 
         WebElement SubscribeButton = driver.findElement(By.linkText("Subscribe / unsubscribe to newsletter"));
@@ -28,7 +28,7 @@ public class _02_Subscribe extends BaseDriver {
         Assert.assertEquals(SuccessMessage.getText(), "Success: Your newsletter subscription has been successfully updated!");
     }
 
-    @Test
+    @Test(enabled = false) // with enabled keyword TestNG will ignore this test
     public void subscribeFunctionForNO(){
 
         WebElement SubscribeButton = driver.findElement(By.linkText("Subscribe / unsubscribe to newsletter"));
