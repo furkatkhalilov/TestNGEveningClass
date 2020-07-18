@@ -3,7 +3,7 @@
 <!-- With a parallel keyword we can run the classes in parallel -->
 <!--Thread count is How many browser you would like to open in one time-->
 
-<suite name="suite1" parallel="methods" thread-count="4">
+<suite name="suite1" parallel="methods" thread-count="20">
     <test name="test1">
 
         <parameter name="searchItem" value="Mac"></parameter>
