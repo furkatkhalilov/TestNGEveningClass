@@ -4,6 +4,7 @@ import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -11,7 +12,10 @@ import java.util.List;
 public class _02_Specials extends BaseDriver {
 
     @Test
-    public void specials(){
+    @Parameters({"searchItem"})
+    public void specials(String searchItem){
+
+        System.out.println(searchItem);
 
         WebElement SpecialsButton = driver.findElement(By.linkText("Specials"));
         SpecialsButton.click();
