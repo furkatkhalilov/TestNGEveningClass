@@ -4,6 +4,7 @@ import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -11,11 +12,12 @@ import java.util.List;
 public class _03_SearchFunctionality extends BaseDriver {
 
     @Test
-    public void searchFunctionality(){
+    @Parameters({"searchItem"})
+    public void searchFunctionality(String searchItem){
 
-        String text = "Mac";
+
         WebElement searchInput = driver.findElement(By.cssSelector("input[name='search']"));
-        searchInput.sendKeys(text);
+        searchInput.sendKeys(searchItem);
 
         WebElement searchButton = driver.findElement(By.xpath("//button[@class='btn btn-default btn-lg']"));
         searchButton.click();
@@ -37,7 +39,7 @@ public class _03_SearchFunctionality extends BaseDriver {
 
             System.out.println(eachElement.getText());
 //            Assert.assertTrue(eachElement.getText().contains(text));
-            Assert.assertTrue(eachElement.getText().toLowerCase().contains(text.toLowerCase()));
+            Assert.assertTrue(eachElement.getText().toLowerCase().contains(searchItem.toLowerCase()));
         }
 
     }
