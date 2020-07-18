@@ -30,15 +30,10 @@ public class _02_Specials extends BaseDriver {
 
         List<WebElement> imageList = driver.findElements(By.xpath("//div[@class='image']"));
 
-        System.out.println(oldPriceList.size()==imageList.size());
-        System.out.println(oldPriceList);
-        System.out.println(imageList);
-
         Assert.assertTrue(oldPriceList.size()==imageList.size());
 
         /*
-            Create a XML file for contact us class and specails class
-
+            Create a XML file for contact us class and specials class
          */
     }
 
