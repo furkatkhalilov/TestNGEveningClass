@@ -4,13 +4,17 @@ import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class _02_Sample1 extends BaseDriver {
 
-    @Test
-    @Parameters("enquiry")
+    @Test(dataProvider = "enquiryName")
     public void contactUs(String enquiry) throws InterruptedException {
 
         WebElement contactButton = driver.findElement(By.linkText("Contact Us"));
@@ -21,9 +25,6 @@ public class _02_Sample1 extends BaseDriver {
 
         Thread.sleep(5000);
 
-//        WebElement submitButton = driver.findElement(By.className("btn btn-primary")); if there is a space between class value
-//              then selenium is not able to locate the element with className locator type
-
         WebElement submitButton = driver.findElement(By.xpath("//input[@value='Submit']"));
         submitButton.click();
 
@@ -33,5 +34,15 @@ public class _02_Sample1 extends BaseDriver {
 
     }
 
+    @DataProvider(name="enquiryName")
+    public Iterator<Object> data1(){
+
+        List<Object> myList = new ArrayList<>();
+
+        myList.add("Hello team Hello team");
+        myList.add("Hello team we are in this page");
+
+        return myList.iterator();
+    }
 
 }
