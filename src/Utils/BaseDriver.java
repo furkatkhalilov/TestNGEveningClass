@@ -1,6 +1,7 @@
 package Utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,6 +27,8 @@ public class BaseDriver  {
 
 //        With this if else statement We are getting the browser name from the xml file then
 //          We are opening the browser in this if statement
+//          Before you download the geckoDriver you should have firefox browser in your laptop
+//        Link for the firefox --> https://github.com/mozilla/geckodriver/releases/tag/v0.26.0
         if(browser.equalsIgnoreCase("chrome")){
             System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
             driver = new ChromeDriver(); // Opennning the chrome
@@ -44,11 +47,17 @@ public class BaseDriver  {
         WebElement loginButton = driver.findElement(By.linkText("Login"));
         loginButton.click();
 
-        WebElement advancedButton = driver.findElement(By.id("details-button"));
-        advancedButton.click();
+        try{
+//        These two elements are showing in the chrome but not in the firefox
+            WebElement advancedButton = driver.findElement(By.id("details-button"));
+            advancedButton.click();
 
-        WebElement ProceedButton = driver.findElement(By.id("proceed-link"));
-        ProceedButton.click();
+            //        These two elements are showing in the chrome but not in the firefox
+            WebElement ProceedButton = driver.findElement(By.id("proceed-link"));
+            ProceedButton.click();
+        }catch (NoSuchElementException e){
+            System.out.println("This part is just for chrome");
+        }
 
         WebElement emailInput = driver.findElement(By.id("input-email"));
         emailInput.sendKeys("asd@gmail.com");
