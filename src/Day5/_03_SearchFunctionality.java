@@ -4,9 +4,12 @@ import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class _03_SearchFunctionality extends BaseDriver {
@@ -43,12 +46,5 @@ public class _03_SearchFunctionality extends BaseDriver {
         }
 
     }
-
-    /*
-        Create a xml file for _03_searchFunctionality
-
-        Run the search functionality from that xml file
-
-     */
 
 }
