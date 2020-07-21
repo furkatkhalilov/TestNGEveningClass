@@ -18,7 +18,6 @@ public class _03_SearchFunctionality extends BaseDriver {
     @Parameters({"searchItem"})
     public void searchFunctionality(String searchItem){
 
-
         WebElement searchInput = driver.findElement(By.cssSelector("input[name='search']"));
         searchInput.sendKeys(searchItem);
 
@@ -26,6 +25,7 @@ public class _03_SearchFunctionality extends BaseDriver {
         searchButton.click();
 
         /*
+
             1) is URL contains search text
 
             2) list of items
