@@ -26,5 +26,16 @@ public class _05_PlaceOrderElements {
     @FindBy(xpath = "//button[@class='btn btn-default btn-lg']")
     public WebElement searchButton;
 
+    // find an element for the first option in the item page and click on it.
+
+//    @FindBy(linkText = "Palm Treo Pro")
+//    public WebElement Item1;      Example for the linkText
+
+    @FindBy(xpath = "(//div[@class='caption']//a)[1]")
+    public WebElement Item1;
+
+
+
+
 
 }

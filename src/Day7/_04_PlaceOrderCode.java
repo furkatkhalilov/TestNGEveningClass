@@ -16,5 +16,8 @@ public class _04_PlaceOrderCode extends BaseDriver {
         placeOrderElements.searchInput.sendKeys("Palm");
 
         placeOrderElements.searchButton.click();
+
+        placeOrderElements.Item1.click();
+
     }
 }
