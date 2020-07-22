@@ -16,7 +16,7 @@ public class _01_AssertExamples {
     @Test
     public void equalExample(){
 
-        String actualResult = "Account updated successfully";
+        String actualResult = "Account updated succes";
 
         Assert.assertEquals("Account updated successfully",actualResult);
 
@@ -98,4 +98,45 @@ public class _01_AssertExamples {
         Assert.assertEquals(s1,s2);
         Assert.assertEquals(i1,i2);
     }
+
+    @Test
+    public void assertNotSameExample(){
+
+        String s1 = new String("Ekrem");
+        String s2 = new String("Ekrem");
+//                      with a new String reference is changing this is why
+//                              assertNotSame is passing
+
+//        == vs .equals in java
+
+        Assert.assertNotSame(s1,s2); // expected is s1 and s2 is not equal
+
+    }
+
+    @Test
+    public void trueOrFalse(){
+
+        String message = "Address is successfully created ";
+
+//        Assert.assertTrue( message.contains("success123"),
+//                "message should contain the success123 text but it is not containing " );
+//        // Condition in the parenthesis should be true
+
+        Assert.assertFalse(message.contains("success") ,"message should not contain the success text but it is not containing " );//Condition in the parenthesis should be false
+    }
+
+    @Test
+    public void failExample(){
+
+        String URL = "www.facebook.com/homepage";
+
+        if(URL.contains("homepage")){
+            Assert.fail("Web site should not login but it is login successfully ");
+        }
+
+    }
+
+
+
+
 }
