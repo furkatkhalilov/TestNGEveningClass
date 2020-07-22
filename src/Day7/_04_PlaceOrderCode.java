@@ -19,5 +19,8 @@ public class _04_PlaceOrderCode extends BaseDriver {
 
         placeOrderElements.Item1.click();
 
+        placeOrderElements.addToCartButton.click();
+
+        placeOrderElements.shoppingCartButton.click();
     }
 }
