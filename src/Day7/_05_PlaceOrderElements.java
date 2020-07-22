@@ -38,8 +38,6 @@ public class _05_PlaceOrderElements {
     @FindBy(xpath = "//span[text()='Shopping Cart']")
     public WebElement shoppingCartButton;
 
-//    Checkout webElement and click on the element
-
     @FindBy(linkText = "Checkout")
     public WebElement CheckoutButton;
 
