@@ -3,6 +3,7 @@ package Day7;
 import Utils.BaseDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class _04_PlaceOrderCode extends BaseDriver {
@@ -38,6 +39,16 @@ public class _04_PlaceOrderCode extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(placeOrderElements.checkBoxAgree)).click();
 
         wait.until(ExpectedConditions.elementToBeClickable(placeOrderElements.continue4)).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(placeOrderElements.confirmButton)).click();
+
+//        Waiting for the URL contain the success.
+        wait.until(ExpectedConditions.urlContains("success"));
+
+        String messageOfCondirmed = placeOrderElements.orderedText.getText();
+
+        Assert.assertEquals(messageOfCondirmed,"Your order has been placed!");
+
 
     }
 }

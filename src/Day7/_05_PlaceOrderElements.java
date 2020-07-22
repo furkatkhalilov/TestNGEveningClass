@@ -56,6 +56,11 @@ public class _05_PlaceOrderElements {
     @FindBy(id="button-payment-method")
     public WebElement continue4;
 
+    @FindBy(id="button-confirm")
+    public WebElement confirmButton;
+
+    @FindBy(tagName = "h1")
+    public WebElement orderedText;
 
 
 }
