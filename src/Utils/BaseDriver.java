@@ -68,6 +68,6 @@ public class BaseDriver  {
 
     @AfterMethod
     public void afterMethod(){
-        driver.quit();
+//        driver.quit();
     }
 }

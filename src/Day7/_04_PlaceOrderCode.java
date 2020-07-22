@@ -9,7 +9,12 @@ public class _04_PlaceOrderCode extends BaseDriver {
     @Test
     public void placeOrder(){
 
+//        input[placeholder='Search']
 
+        _05_PlaceOrderElements placeOrderElements = new _05_PlaceOrderElements(driver);
 
+        placeOrderElements.searchInput.sendKeys("Palm");
+
+        placeOrderElements.searchButton.click();
     }
 }
