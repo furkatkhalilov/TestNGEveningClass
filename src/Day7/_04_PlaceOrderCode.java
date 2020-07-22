@@ -49,6 +49,8 @@ public class _04_PlaceOrderCode extends BaseDriver {
 
         Assert.assertEquals(messageOfCondirmed,"Your order has been placed!");
 
+        placeOrderElements.searchInput.sendKeys("Mac");
 
+        placeOrderElements.searchButton.click();
     }
 }

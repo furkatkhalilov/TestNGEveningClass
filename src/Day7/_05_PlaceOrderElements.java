@@ -62,5 +62,4 @@ public class _05_PlaceOrderElements {
     @FindBy(tagName = "h1")
     public WebElement orderedText;
 
-
 }

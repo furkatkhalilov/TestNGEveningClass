@@ -43,7 +43,6 @@ public class _02_Subscribe extends BaseDriver {
         WebElement SuccessMessage = driver.findElement(By.cssSelector("div[class='alert alert-success']"));
 
         Assert.assertEquals(SuccessMessage.getText(), "Success: Your newsletter subscription has been successfully updated!");
-
     }
 
     @Test(groups = "SmokeTesting")
