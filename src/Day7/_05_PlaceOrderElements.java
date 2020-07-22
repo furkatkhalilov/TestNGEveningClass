@@ -32,11 +32,32 @@ public class _05_PlaceOrderElements {
     @FindBy(xpath = "(//div[@class='caption']//a)[1]")
     public WebElement Item1;
 
-//    Find an element for add to cart and click on the element
     @FindBy(id="button-cart")
     public WebElement addToCartButton;
 
     @FindBy(xpath = "//span[text()='Shopping Cart']")
     public WebElement shoppingCartButton;
+
+//    Checkout webElement and click on the element
+
+    @FindBy(linkText = "Checkout")
+    public WebElement CheckoutButton;
+
+    @FindBy(id="button-payment-address")
+    public WebElement continue1;
+
+    @FindBy(id="button-shipping-address")
+    public WebElement continue2;
+
+    @FindBy(id="button-shipping-method")
+    public WebElement continue3;
+
+    @FindBy(css = "input[name='agree']")
+    public WebElement checkBoxAgree;
+
+    @FindBy(id="button-payment-method")
+    public WebElement continue4;
+
+
 
 }
