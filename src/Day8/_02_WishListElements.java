@@ -32,6 +32,16 @@ public class _02_WishListElements {
     @FindBy(xpath = "//a[@id='wishlist-total']/span")
     public WebElement wishListButton;
 
+    @FindAll({
+            @FindBy(xpath = "//table//tbody//tr//td[2]")
+    })
+    public List<WebElement>  nameInTheCartPage;
 
+    @FindAll({
+            @FindBy(xpath = "//a[@data-original-title='Remove']")
+    })
+    public List<WebElement> removeButtonList;
 
+    @FindBy(xpath = "//a[@data-original-title='Remove']")
+    public List<WebElement> removeButtonList2;
 }

@@ -2,15 +2,18 @@ package Day8;
 
 import Day7._05_PlaceOrderElements;
 import Utils.BaseDriver;
+import Utils.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class _01_WishList extends BaseDriver {
 
 
     @Test
-    public void WishListTest(){
+    public void WishListTest()   {
 
         /*
             Search input and search button elments are coming from the _05_PlaceOrderElements
@@ -30,6 +33,8 @@ public class _01_WishList extends BaseDriver {
 
         System.out.println(wishListElements.nameListInTheItemPage.size());
 
+        List<String > nameListInTheItemPageStr = ReusableMethods.WebElmentToString(wishListElements.nameListInTheItemPage);
+
         /*
             Click on the hearth icon one by one
 
@@ -46,10 +51,37 @@ public class _01_WishList extends BaseDriver {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
 
         wishListElements.wishListButton.click();
+
+        List<String> nameInTheCartPageStr =ReusableMethods.WebElmentToString(wishListElements.nameInTheCartPage);
+
+        System.out.println(nameInTheCartPageStr);
+        System.out.println(nameListInTheItemPageStr);
+
+        ReusableMethods.verifyTwoStringList(nameInTheCartPageStr , nameListInTheItemPageStr);
+
+        /*
+            When we start size = 4 -- i = 0
+                                3  -- i = 1
+                                2  -- i = 2
+
+         */
+//        for(int i = 0 ; i<wishListElements.removeButtonList2.size(); i++){
+//            wishListElements.removeButtonList2.get(0).click();
+//        }
+
+        List<WebElement> removIcon = wishListElements.removeButtonList2;
+
+        do {
+
+            removIcon = wishListElements.removeButtonList2;
+            removIcon.get(0).click();
+
+
+        }while (removIcon.size()!=0);
+
     }
 
 }
