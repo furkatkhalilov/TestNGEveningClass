@@ -40,8 +40,8 @@ public class _04_PlaceOrderCode extends BaseDriver {
 
         wait.until(ExpectedConditions.elementToBeClickable(placeOrderElements.continue4)).click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(placeOrderElements.confirmButton)).click();
 
+        placeOrderElements.clickFunction(placeOrderElements.confirmButton , driver);
 //        Waiting for the URL contain the success.
         wait.until(ExpectedConditions.urlContains("success"));
 

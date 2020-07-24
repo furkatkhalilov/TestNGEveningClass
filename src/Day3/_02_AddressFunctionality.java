@@ -83,6 +83,7 @@ public class _02_AddressFunctionality extends BaseDriver {
         continueButton.click();
 
         reusableMethods.verifySuccessMessage(driver);
+
     }
 
     @Test(dependsOnMethods = "AddAddress")

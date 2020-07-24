@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class _05_PlaceOrderElements {
+public class _05_PlaceOrderElements extends _06_Parent{
 
     /*
         In this class we are going to have all the elements for the _04_PlaceOrderCode class
