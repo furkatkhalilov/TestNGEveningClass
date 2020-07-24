@@ -2,6 +2,8 @@ package Day8;
 
 import Day7._05_PlaceOrderElements;
 import Utils.BaseDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class _01_WishList extends BaseDriver {
@@ -26,9 +28,28 @@ public class _01_WishList extends BaseDriver {
 
         System.out.println(wishListElements.hearthIconList.size());
 
+        System.out.println(wishListElements.nameListInTheItemPage.size());
 
+        /*
+            Click on the hearth icon one by one
 
+         */
+        for(WebElement eachHearthIcon:wishListElements.hearthIconList){
 
+            eachHearthIcon.click();
+
+//            JavascriptExecutor js = (JavascriptExecutor) driver;
+//            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        wishListElements.wishListButton.click();
     }
 
 }

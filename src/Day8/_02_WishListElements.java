@@ -24,7 +24,14 @@ public class _02_WishListElements {
     })
     public List<WebElement> hearthIconList;
 
-        
+    @FindAll({
+            @FindBy(css = "div[class='caption']>h4")
+    })
+    public List<WebElement> nameListInTheItemPage;
+
+    @FindBy(xpath = "//a[@id='wishlist-total']/span")
+    public WebElement wishListButton;
+
 
 
 }
